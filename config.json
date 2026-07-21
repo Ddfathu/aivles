@@ -1,48 +1,11 @@
 {
-  "inbounds": [
-    {
-      "port": 8080,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "ad000000-0000-0000-0000-000000000000",
-            "level": 0
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 8081
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vless-ws"
-        }
-      }
-    },
-    {
-      "port": 8081,
-      "listen": "127.0.0.1",
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "ad000000-0000-0000-0000-000000000000",
-            "level": 0
-          }
-        ],
-        "decryption": "none"
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
+  "name": "railway-vless-worker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
 }
