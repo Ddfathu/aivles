@@ -1,11 +1,13 @@
 {
-  "name": "railway-vless-worker",
+  "name": "railway-gateway",
   "version": "1.0.0",
+  "description": "Multi-Protocol Cyberpunk Gateway for Railway",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "ws": "^8.18.0"
+    "ws": "^8.18.0",
+    "node-fetch": "^2.7.0"
   }
 }
