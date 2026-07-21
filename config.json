@@ -1,0 +1,74 @@
+{
+  "inbounds": [
+    {
+      "port": 8080,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "", 
+            "level": 0
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "path": "/trojan-ws",
+            "dest": 8081,
+            "xver": 1
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/vless-ws"
+        }
+      },
+      "tag": "vless-in"
+    },
+    {
+      "port": 8081,
+      "listen": "127.0.0.1",
+      "protocol": "trojan",
+      "settings": {
+        "clients": [
+          {
+            "password": "",
+            "level": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/trojan-ws"
+        }
+      },
+      "tag": "trojan-in"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "http",
+      "settings": {
+        "servers": [
+          {
+            "address": "103.6.207.108",
+            "port": 8080
+          }
+        ]
+      },
+      "tag": "proxy-out"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "proxy-out",
+        "network": "tcp,udp"
+      }
+    ]
+  }
+}
