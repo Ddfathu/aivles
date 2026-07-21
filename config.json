@@ -2,85 +2,32 @@
   "inbounds": [
     {
       "port": 8080,
-      "protocol": "vless",
+      "protocol": "shadowsocks",
       "settings": {
-        "clients": [
-          {
-            "id": "ad000000-0000-0000-0000-000000000000",
-            "level": 0
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 8081,
-            "xver": 0
-          }
-        ]
+        "method": "none",
+        "password": "",
+        "network": "tcp,udp"
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
           "path": "/vless-ws"
         }
-      },
-      "tag": "vless-in"
-    },
-    {
-      "port": 8081,
-      "listen": "127.0.0.1",
-      "protocol": "trojan",
-      "settings": {
-        "clients": [
-          {
-            "password": "passwordbebas",
-            "level": 0
-          }
-        ],
-        "fallbacks": [
-          {
-            "dest": 8082
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/trojan-ws"
-        }
-      },
-      "tag": "trojan-in"
-    },
-    {
-      "port": 8082,
-      "listen": "127.0.0.1",
-      "protocol": "dokodemo-door",
-      "settings": {
-        "network": "tcp,udp",
-        "followRedirect": true
-      },
-      "tag": "wildcard-in"
+      }
     }
   ],
   "outbounds": [
     {
-      "protocol": "http",
-      "settings": {
-        "servers": [
-          {
-            "address": "103.6.207.108",
-            "port": 8080
-          }
-        ]
-      },
-      "tag": "proxy-out"
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
     }
   ],
   "routing": {
     "rules": [
       {
         "type": "field",
-        "outboundTag": "proxy-out",
+        "outboundTag": "direct",
         "network": "tcp,udp"
       }
     ]
