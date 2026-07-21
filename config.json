@@ -13,8 +13,7 @@
         "decryption": "none",
         "fallbacks": [
           {
-            "dest": 8081,
-            "xver": 0
+            "dest": 8081
           }
         ]
       },
@@ -28,10 +27,15 @@
     {
       "port": 8081,
       "listen": "127.0.0.1",
-      "protocol": "dokodemo-door",
+      "protocol": "vless",
       "settings": {
-        "network": "tcp,udp",
-        "followRedirect": true
+        "clients": [
+          {
+            "id": "ad000000-0000-0000-0000-000000000000",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
       }
     }
   ],
