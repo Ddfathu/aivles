@@ -6,16 +6,15 @@
       "settings": {
         "clients": [
           {
-            "id": "", 
+            "id": "ad000000-0000-0000-0000-000000000000",
             "level": 0
           }
         ],
         "decryption": "none",
         "fallbacks": [
           {
-            "path": "/trojan-ws",
             "dest": 8081,
-            "xver": 1
+            "xver": 0
           }
         ]
       },
@@ -34,8 +33,13 @@
       "settings": {
         "clients": [
           {
-            "password": "",
+            "password": "passwordbebas",
             "level": 0
+          }
+        ],
+        "fallbacks": [
+          {
+            "dest": 8082
           }
         ]
       },
@@ -46,6 +50,16 @@
         }
       },
       "tag": "trojan-in"
+    },
+    {
+      "port": 8082,
+      "listen": "127.0.0.1",
+      "protocol": "dokodemo-door",
+      "settings": {
+        "network": "tcp,udp",
+        "followRedirect": true
+      },
+      "tag": "wildcard-in"
     }
   ],
   "outbounds": [
